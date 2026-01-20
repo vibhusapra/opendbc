@@ -26,7 +26,9 @@
 #include "opendbc/safety/modes/elm327.h"
 #include "opendbc/safety/modes/body.h"
 #include "opendbc/safety/modes/psa.h"
+#ifdef CANFD
 #include "opendbc/safety/modes/hyundai_canfd.h"
+#endif
 #include "opendbc/safety/modes/volvo.h"
 
 uint32_t GET_BYTES(const CANPacket_t *msg, int start, int len) {
@@ -403,7 +405,9 @@ int set_safety_hooks(uint16_t mode, uint16_t param) {
     {SAFETY_FORD, &ford_hooks},
     {SAFETY_RIVIAN, &rivian_hooks},
     {SAFETY_TESLA, &tesla_hooks},
+#ifdef CANFD
     {SAFETY_HYUNDAI_CANFD, &hyundai_canfd_hooks},
+#endif
     {SAFETY_VOLVO, &volvo_hooks},
 #ifdef ALLOW_DEBUG
     {SAFETY_PSA, &psa_hooks},
