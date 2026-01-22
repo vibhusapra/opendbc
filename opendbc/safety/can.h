@@ -1,6 +1,9 @@
 #pragma once
 
+#ifndef DLC_TO_LEN_DEFINED
+#define DLC_TO_LEN_DEFINED
 static const unsigned char dlc_to_len[] = {0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 12U, 16U, 20U, 24U, 32U, 48U, 64U};
+#endif
 
 #define CANPACKET_HEAD_SIZE 6U  // non-data portion of CANPacket_t
 #define CANPACKET_DATA_SIZE_MAX 64U
