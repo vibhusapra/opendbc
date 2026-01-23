@@ -31,6 +31,13 @@ class CarInterface(CarInterfaceBase):
     # Note: No lateral tuning configuration needed for basic angle control
     ret.radarUnavailable = True
 
+    # Longitudinal tuning parameters (required for controlsd)
+    ret.longitudinalTuning.kf = 1.0
+    ret.longitudinalTuning.kpBP = [0., 35.]
+    ret.longitudinalTuning.kpV = [1.2, 0.8]
+    ret.longitudinalTuning.kiBP = [0., 35.]
+    ret.longitudinalTuning.kiV = [0.18, 0.12]
+
     ret.alphaLongitudinalAvailable = False
 
     ret.pcmCruise = True
