@@ -1,5 +1,9 @@
 #pragma once
 
+// When building panda firmware, can_declarations.h is already included
+// and provides CANPACKET_HEAD_SIZE. Only define our types if not building panda.
+#ifndef CANPACKET_HEAD_SIZE
+
 static const unsigned char dlc_to_len[] = {0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 12U, 16U, 20U, 24U, 32U, 48U, 64U};
 
 #define CANPACKET_HEAD_SIZE 6U  // non-data portion of CANPacket_t
@@ -20,3 +24,5 @@ typedef struct {
 } __attribute__((packed, aligned(4))) CANPacket_t;
 
 #define GET_LEN(msg) (dlc_to_len[(msg)->data_len_code])
+
+#endif  // CANPACKET_HEAD_SIZE
