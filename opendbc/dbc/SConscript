@@ -24,8 +24,10 @@ output_files += [
   if not f.name.startswith(("_", "test_")) and f.name != "generator.py"
 ]
 
-generated = env.Command(
-  target=list(set(output_files)),
-  source=[generator] + source_files,
-  action="python3 ${SOURCES[0]}",
-)
+# Disabled DBC generation - not needed for Polestar 2
+# The Tesla/Toyota DBC generation was causing build errors
+# generated = env.Command(
+#   target=list(set(output_files)),
+#   source=[generator] + source_files,
+#   action="python3 ${SOURCES[0]}",
+# )
