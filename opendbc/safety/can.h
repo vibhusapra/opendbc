@@ -1,9 +1,5 @@
 #pragma once
 
-// When opendbc safety is built as part of panda firmware, panda already provides
-// CANPacket_t and dlc_to_len (via panda/board/can.h and can_declarations.h).
-// Avoid duplicate definitions that break the build.
-#ifndef CANPACKET_HEAD_SIZE
 static const unsigned char dlc_to_len[] = {0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 12U, 16U, 20U, 24U, 32U, 48U, 64U};
 
 #define CANPACKET_HEAD_SIZE 6U  // non-data portion of CANPacket_t
@@ -22,8 +18,5 @@ typedef struct {
   unsigned char checksum;
   unsigned char data[CANPACKET_DATA_SIZE_MAX];
 } __attribute__((packed, aligned(4))) CANPacket_t;
-#endif  // CANPACKET_HEAD_SIZE
 
-#ifndef GET_LEN
 #define GET_LEN(msg) (dlc_to_len[(msg)->data_len_code])
-#endif
