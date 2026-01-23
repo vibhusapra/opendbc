@@ -32,7 +32,6 @@ class CarInterface(CarInterfaceBase):
     ret.radarUnavailable = True
 
     # Longitudinal tuning parameters (required for controlsd)
-    ret.longitudinalTuning.kf = 1.0
     ret.longitudinalTuning.kpBP = [0., 35.]
     ret.longitudinalTuning.kpV = [1.2, 0.8]
     ret.longitudinalTuning.kiBP = [0., 35.]
