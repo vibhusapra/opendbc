@@ -54,7 +54,7 @@ class CAR(Platforms):
     ),
   )
   POLESTAR_2 = VolvoCMAPlatformConfig(
-    [VolvoCarDocs("Polestar 2 2020-2024")],
+    [VolvoCarDocs("Polestar 2 2020+")],
     CarSpecs(
       mass=2123,  # Long Range Dual Motor variant
       wheelbase=2.735,
