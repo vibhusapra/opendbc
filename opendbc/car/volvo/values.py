@@ -53,6 +53,15 @@ class CAR(Platforms):
       centerToFrontRatio=0.52,
     ),
   )
+  POLESTAR_2 = VolvoCMAPlatformConfig(
+    [VolvoCarDocs("Polestar 2 2020+")],
+    CarSpecs(
+      mass=2123,
+      wheelbase=2.735,
+      steerRatio=15.8,
+      centerToFrontRatio=0.52,
+    ),
+  )
   #TODO update car specs
   VOLVO_S60_RECHARGE = VolvoSPAPlatformConfig(
     [VolvoCarDocs("Volvo S60 Recharge 2024")],
